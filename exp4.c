@@ -1,4 +1,4 @@
-//4. Find the sum of rows and columns of matrix of given order (row x column).
+// 4. Find the sum of rows and columns of matrix of given order (row x column).
 #include <stdio.h>
 
 int main() {
