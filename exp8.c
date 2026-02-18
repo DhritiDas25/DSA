@@ -2,12 +2,10 @@
 and display.*/
 #include <stdio.h>
 #include <stdlib.h>
-
 struct Node {
     int data;
     struct Node* next;
 };
-
 // Push: Insert at the beginning
 void push(struct Node** top, int val) {
     struct Node* newNode = malloc(sizeof(struct Node));
@@ -17,7 +15,6 @@ void push(struct Node** top, int val) {
     *top = newNode;
     printf("Pushed %d\n", val);
 }
-
 // Pop: Delete from the beginning
 void pop(struct Node** top) {
     if (*top == NULL) { printf("Stack Underflow\n"); return; }
@@ -26,7 +23,6 @@ void pop(struct Node** top) {
     *top = (*top)->next;
     free(temp);
 }
-
 // Display the stack
 void display(struct Node* top) {
     if (!top) { printf("Stack is empty\n"); return; }
@@ -36,17 +32,13 @@ void display(struct Node* top) {
     }
     printf("NULL\n");
 }
-
 int main() {
     struct Node* stack = NULL;
-
     push(&stack, 10);
     push(&stack, 20);
     push(&stack, 30);
     display(stack); // 30 -> 20 -> 10 -> NULL
-
     pop(&stack);
     display(stack); // 20 -> 10 -> NULL
-
     return 0;
 }

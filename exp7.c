@@ -1,13 +1,10 @@
 /* LAB:
 1. Implement single Linked List data structure and its operations like insert and 
-delete in the beginning/end and nth position of the list, and display the items stored in the linked list.
-PRACTICE:
-1. Using single linked list, implement its basic operations like insert, delete, and display.
-2. Implement Circular Linked List and its operations.
-3. Implement Doubly Linked List and its operations. */
+delete in the beginning/end and nth position of the list, and display the items 
+stored in the linked list.*/
+
 #include <stdio.h>
 #include <stdlib.h>
-
 struct Node {
     int data;
     struct Node* next;
@@ -22,7 +19,6 @@ void insert(struct Node** head, int val, int pos) {
     newN->next = temp->next;
     temp->next = newN;
 }
-
 void delete(struct Node** head, int pos) {
     if (!*head) return;
     struct Node *temp = *head, *prev;
@@ -32,12 +28,10 @@ void delete(struct Node** head, int pos) {
     prev->next = temp->next;
     free(temp);
 }
-
 void display(struct Node* head) {
     while (head) { printf("%d -> ", head->data); head = head->next; }
     printf("NULL\n");
 }
-
 int main() {
     struct Node* head = NULL;
     insert(&head, 10, 1); // Start
