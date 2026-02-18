@@ -1,4 +1,4 @@
-/* 1. Using array and functions implement Stack and its operations like insert, delete, and display.*/
+/* 2. Using array and functions implement Stack and its operations like insert, delete, and display.*/
 #include<stdio.h>
 #define s 5
 int i,stack[100],top=-1;
