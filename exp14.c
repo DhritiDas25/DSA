@@ -1,31 +1,30 @@
 /*1. Convert infix to postfix expression using stack and array.*/
-#include<stdio.h>
-#include<string.h>
-int i,j;
-void postfix(char arr[]){
-    int top=strlen(arr)-1;
-    if(arr[top]=='\n'){
-        top--;
-    }
-    if(top<0){
-        printf("Stack empty\n");
-    }
-    else{
-        for(i=top;i>=0;i--){
-            if(arr[i]=='+'||arr[i]=='-'||arr[i]=='*'||arr[i]=='/'||arr[i]=='%'){
-                char j=arr[i];
-            }
-            else{
-                printf("%c ", arr[i]);
-            }
-    }
-    printf("%c\n", j);
+#include <stdio.h>
+#include <ctype.h>
+int priority(char op) {
+    if (op == '+' || op == '-') return 1;
+    if (op == '*' || op == '/') return 2;
+    return 0;
 }
-}
-int main(){
-    char arr[100];
-    printf("Enter infix expression: ");
-    fgets(arr,sizeof(arr),stdin);
-    postfix(arr);
+int main() {
+    char infix[100], stack[100];
+    int top = -1;
+    printf("Enter expression: ");
+    scanf("%s", infix);
+
+    for (int i = 0; infix[i] != '\0'; i++) {
+        if (isalnum(infix[i])) {
+            printf("%c", infix[i]);
+        } 
+        else {
+            while (top != -1 && priority(stack[top]) >= priority(infix[i])) {
+                printf("%c", stack[top--]);
+            }
+            stack[++top] = infix[i]; 
+        }
+    }
+    while (top != -1) {
+        printf("%c", stack[top--]);
+    }
     return 0;
 }
