@@ -12,7 +12,7 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
-    // Step 1: Sort the array using Bubble Sort
+    //Sort the array using Bubble Sort
     for (i = 0; i < n - 1; i++) {
         for (j = 0; j < n - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
@@ -28,7 +28,7 @@ int main() {
         printf("%d ", arr[i]);
     }
 
-    // Step 2: Perform Binary Search
+    //Binary Search
     printf("\nEnter element to search: ");
     scanf("%d", &key);
 
